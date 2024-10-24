@@ -1,0 +1,19 @@
+{
+  "name": "pi-sainsmart-16-relay",
+  "description": "",
+  "author": "Mat Janson Blanchet <mat@jansonblanchet.com> (https://mat.jansonblanchet.com)",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+
+  "scripts": {
+    "start": ""
+  },
+
+  "dependencies": {
+    "rpio": "^2.4.2"
+  },
+
+  "engines": {
+    "node": ">=18"
+  }
+}
