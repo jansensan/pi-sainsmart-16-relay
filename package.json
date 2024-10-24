@@ -6,7 +6,7 @@
   "license": "UNLICENSED",
 
   "scripts": {
-    "start": ""
+    "start": "node modules/main.js"
   },
 
   "dependencies": {
