@@ -1,4 +1,4 @@
-const sainsmart16 = require('./services/sainsmart-16');
+const relays = require('./services/sainsmart-16');
 
 
 // auto initialization
@@ -9,6 +9,6 @@ init();
 function init() {
   console.info('--- main init ---');
 
-  sainsmart16.init();
-  sainsmart16.enablePinsSequentially();
+  relays.init();
+  relays.enablePinsSequentially();
 }
