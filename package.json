@@ -6,7 +6,8 @@
   "license": "UNLICENSED",
 
   "scripts": {
-    "start": "node modules/main.js"
+    "start": "node modules/activate-pins-sequentially.js",
+    "stop": "node modules/deactivate-all-pins.js"
   },
 
   "dependencies": {

@@ -14,42 +14,53 @@ const RelayState = {
 }
 
 
+// vars
+let isInit = false;
+
+
 module.exports = {
   init,
-  enablePinsSequentially,
+  activateAllPins,
+  activatePinsSequentially,
+  deactivateAllPins,
 };
 
 
 function init() {
   console.info('--- sainsmart init ---');
 
-  rpio.init({ close_on_exit: false });
+  if (isInit) {
+    return;
+  }
 
   // set initial pin states -- should all be off (no current passing)
   PINS.forEach(pin => {
     rpio.open(pin, rpio.OUTPUT, RelayState.OFF);
   });
 
-  process.on('exit', () => {
-    disableAllPins();
-    rpio.exit();
-  });
+  isInit = true;
 }
 
-function enableAllPins() {
-  console.info('--- sainsmart enableAllPins ---');
+function activateAllPins() {
+  console.info('--- sainsmart activateAllPins ---');
+
+  if (!isInit) init();
 
   PINS.forEach(pin => rpio.write(pin, RelayState.ON));
 }
 
-function disableAllPins() {
-  console.info('--- sainsmart disableAllPins ---');
+function deactivateAllPins() {
+  console.info('--- sainsmart deactivateAllPins ---');
+
+  if (!isInit) init();
 
   PINS.forEach(pin => rpio.write(pin, RelayState.OFF));
 }
 
-function enablePinsSequentially() {
-  console.info('--- sainsmart enablePinsSequentially ---');
+function activatePinsSequentially() {
+  console.info('--- sainsmart activatePinsSequentially ---');
+
+  if (!isInit) init();
 
   let delay = DELAY_SIZE;
   PINS.forEach(pin => {
